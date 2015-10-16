@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpWebTutorial1", "FSharpWebTutorial1\FSharpWebTutorial1.fsproj", "{E4459CD0-F589-45AE-8180-EAB84E3BC50E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpWeb", "FSharpWeb\FSharpWeb.fsproj", "{E4459CD0-F589-45AE-8180-EAB84E3BC50E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.fsproj", "{DDF9599F-1772-4C41-98E0-FA1BEF56FED6}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.fsproj", "{DDF9599F-1772-4C41-98E0-FA1BEF56FED6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
