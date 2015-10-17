@@ -58,4 +58,6 @@ type LodgingDrivers = {RoomCost:decimal<Dollar/Person/Day>; Rooms: int<Person>; 
 let lodgingCost (inputs: LodgingDrivers) = 
     inputs.RoomCost * (decimal inputs.Rooms * decimal inputs.Nights |> DecimalWithMeasure<Person*Day>)
 
-  
+type MealDrivers = {Meal: decimal<Dollar/Meal>; Days: int<Day>; Meals: int<Meal/Person/Day>; People: int<Person>}
+let mealCost inputs =
+    inputs.Meal * (decimal inputs.Days * decimal inputs.Meals * decimal inputs.People |> DecimalWithMeasure<Meal>)
