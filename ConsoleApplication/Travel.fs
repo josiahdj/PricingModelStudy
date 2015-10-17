@@ -32,16 +32,26 @@ type TransportDrivers =
     | Drive of DriveDrivers * ParkingDrivers
     | Train of TrainDrivers * ParkingDrivers
 
+let flightCost inputs =
+    inputs.AirFare * (decimal inputs.Seats |> DecimalWithMeasure<Person>)
 
-let rec transportCost inputs =
+let driveCost inputs =
+        match inputs with
+            | CostPerMile cpm -> cpm.CostPerMile * cpm.Distance
+            | GasAndTolls gat -> gat.FuelCost / gat.FuelEfficiency * gat.Distance
+            | DrivingRental drive -> drive.CostPerDay * (1M<Day> * decimal drive.Days)
+
+let trainCost inputs = 
+    inputs.CostPerSeat * (decimal inputs.Seats |> DecimalWithMeasure<Person>)
+
+let toAirportCost =
+    driveCost (CostPerMile {CostPerMile = 0.26M<Dollar/Mile>; Distance = 50M<Mile>}) * 4M // to-from home and destination airports, hence x4
+
+let transportCost inputs =
     match inputs with
-        | Flight (flight, parking) -> flight.AirFare * (decimal flight.Seats |> DecimalWithMeasure<Person>) + parkingCost parking // + toFromAirportTransport
-        | Drive (drive, parking) -> 
-            match drive with
-                | CostPerMile cpm -> cpm.CostPerMile * cpm.Distance + parkingCost parking
-                | GasAndTolls gat -> gat.FuelCost / gat.FuelEfficiency * gat.Distance
-                | DrivingRental drive -> drive.CostPerDay * (1M<Day> * decimal drive.Days)
-        | Train (train, parking) -> train.CostPerSeat * (decimal train.Seats |> DecimalWithMeasure<Person>) + parkingCost parking // + toFromStationTransport
+        | Flight (flight, parking) -> flightCost flight + parkingCost parking + toAirportCost
+        | Drive (drive, parking) -> driveCost drive + parkingCost parking
+        | Train (train, parking) -> trainCost train + parkingCost parking // + toFromStationTransport
 
 type LodgingDrivers = {RoomCost:decimal<Dollar/Person/Day>; Rooms: int<Person>; Nights: int<Day>}
 
