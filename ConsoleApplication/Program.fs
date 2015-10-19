@@ -14,8 +14,8 @@ let main argv =
     let mealInputs = {Meal = 20M<Dollar/Meal>; Meals = 3<Meal/Day/Person>; Days = tripLength - 1<Day>; People = teamMembers}
     let impInputs = {TeamMembers = teamMembers; TripsPerMonth = 2<Trip/Month>; TripLength = tripLength; TravelDrivers = transportInputs; LodgingDrivers = lodgingInputs; MealDrivers = mealInputs}
     let cost = implementationCost impInputs
-    printfn "implementation transport cost = %f" cost.TransportCost
-    printfn "implementation lodging cost = %f" cost.LodgingCost
-    printfn "implementation meal cost = %f" cost.MealCost
+    printfn "monthly implementation transport cost = %f" cost.TransportCost
+    printfn "monthly implementation lodging cost = %f" cost.LodgingCost
+    printfn "monthly implementation meal cost = %f" cost.MealCost
         
     0 // return an integer exit code
