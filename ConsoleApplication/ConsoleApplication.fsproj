@@ -53,6 +53,7 @@
     <Compile Include="Travel.fs" />
     <Compile Include="Equipment.fs" />
     <Compile Include="Implementation.fs" />
+    <None Include="CellRefStudy.fsx" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
   </ItemGroup>
