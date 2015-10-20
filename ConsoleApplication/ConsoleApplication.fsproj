@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="UnitsOfMeasure.fs" />
+    <Compile Include="ModelTypes.fs" />
     <Compile Include="Travel.fs" />
     <Compile Include="Equipment.fs" />
     <Compile Include="Implementation.fs" />
