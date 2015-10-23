@@ -1,7 +1,7 @@
 ﻿module ModelTypes
 
-type Model = DrivenCell option list
-and DrivenCell =
+type Model = Cell option list
+and Cell =
     | BlankCell
     | NumberCell of decimal
     | FormulaCell of Formula

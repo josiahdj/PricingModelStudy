@@ -14,7 +14,8 @@ let tags2 = Set.ofList ["COGS"; "Field Ops"; "NYC";]
 type Cell = {Month: int; Dimensions: Set<string>; Value: string}
 
 let cell1 = {Month = 1; Dimensions = tags1; Value = "Cell1"}
-let cell2 = {Month = 2; Dimensions = Set.ofList ["Field Ops"; "COGS"; "NYC"; "Implementation"]; Value = "Cell2"}
+let cell2 = {Month = 2; Dimensions = Set.ofList ["Field Ops"; "COGS"; "NYC"]; Value = "Cell2"} // make sure order doesn't matter
+let cell2b = {Month = 2; Dimensions = Set.ofList ["Field Ops"; "COGS"; "NYC"; "Implementation"]; Value = "Cell2b"} // make sure it's not catching a subset
 let cell3 = {Month = 3; Dimensions = tags1; Value = "Cell3"}
 let cell4 = {Month = 4; Dimensions = tags2; Value = "Cell4"}
 let cell5 = {Month = 5; Dimensions = tags1; Value = "Cell5"}
