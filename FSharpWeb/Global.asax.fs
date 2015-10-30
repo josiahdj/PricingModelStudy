@@ -26,13 +26,13 @@ type BundleConfig() =
 
 /// Route for ASP.NET MVC applications
 type Route = { 
-    controller : string
-    action : string
-    id : UrlParameter }
+    Controller : string
+    Action : string
+    Id : UrlParameter }
 
 type HttpRoute = {
-    controller : string
-    id : RouteParameter }
+    Controller : string
+    Id : RouteParameter }
 
 type Global() =
     inherit System.Web.HttpApplication() 
@@ -43,7 +43,7 @@ type Global() =
         config.Routes.MapHttpRoute(
             "DefaultApi", // Route name
             "api/{controller}/{id}", // URL with parameters
-            { controller = "{controller}"; id = RouteParameter.Optional } // Parameter defaults
+            { Controller = "{controller}"; Id = RouteParameter.Optional } // Parameter defaults
         ) |> ignore
 
         // Configure serialization
@@ -60,7 +60,7 @@ type Global() =
         routes.MapRoute(
             "Default", // Route name
             "{controller}/{action}/{id}", // URL with parameters
-            { controller = "Home"; action = "Index"; id = UrlParameter.Optional } // Parameter defaults
+            { Controller = "Home"; Action = "Index"; Id = UrlParameter.Optional } // Parameter defaults
         ) |> ignore
 
     member x.Application_Start() =
